@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tcf>
+	<title>New Redirect</title>
+	<variable-list>
+		<variable name="source" type="text" prompt="Source" alt="The source for the redirect. The portion after sdsu.edu/.">source</variable>
+		<variable name="destination" type="text" prompt="Destination" alt="Where the user should be redirected to, starting with http:// or https://">destination</variable>
+		<variable name="comment" type="text" prompt="Comment" alt="A comment before the redirect"></variable>
+	    <variable name="tcfname" type="text" display="none">redirect.tcf</variable>
+	</variable-list>
+	<template-list>
+		<template destination="/_redirects"
+				  prompt-prefix="Redirect"
+				  force-destination="yes"
+				  publish="no"
+				  filename="{source}"
+				  extension="xml"
+				  display-filename="no"
+				  display-group="no"
+				  display-overwrite="yes"
+				  exclude-sitemap="yes"
+				  exclude-search="no"
+				  no-publish="yes">redirect.tmpl</template>
+		<template destination="/"
+				  preferred-redirect="no"
+				  force-destination="yes"
+				  publish="yes"
+				  filename="web-rewrite-templates"
+				  extension="pcf"
+				  display-filename="no"
+				  display-group="no"
+				  display-overwrite="no"
+				  overwrite="yes"
+				  exclude-sitemap="yes"
+				  exclude-search="yes">rewrite-map.tmpl</template>
+	</template-list>
+</tcf>
