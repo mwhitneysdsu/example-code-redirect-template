@@ -45,3 +45,5 @@ This package includes an `/iis-config-redirect` folder that contains an alternat
 ```
 
 The redirect.tcf will create /web-rewrite-templates.pcf and an XML file (in /_redirects/) named after the path entered for the source URL. Source URLs are root-relative and must be unique, while destination URLs may be either root-relative or absolute. To change the destination of a particular source URL, edit the XML file.
+
+After creating the desired XML file(s) using the redirect template, publish /web-rewrite-templates.pcf to generate the web-rewrite-templates.config. Once this file has been published, re-publish the web.config file to prompt IIS to reload the configuration.
